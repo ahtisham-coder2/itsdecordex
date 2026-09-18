@@ -958,3 +958,492 @@
   align-items: center;
   justify-content: center;
 }
+/* =========================================================
+   DECODEX — COMPLETE MOBILE RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- GLOBAL ---------- */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  .container,
+  .container--wide {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  /* ---------- ANNOUNCEMENT BAR ---------- */
+
+  .announcement-banner {
+    width: 100%;
+    padding: 10px 42px 10px 16px;
+    font-size: 12px;
+    line-height: 1.4;
+    min-height: 42px;
+  }
+
+  .announcement-banner__close {
+    right: 12px;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+  #site-header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #site-header header,
+  #site-header .site-header,
+  #site-header .header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #site-header .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  #site-header .header-inner,
+  #site-header .site-header__inner,
+  #site-header .header__inner {
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  #site-header .logo,
+  #site-header .header__logo {
+    min-width: 0;
+    max-width: 145px;
+  }
+
+  /* Header actions ko screen se bahar nahi jane dena */
+  #site-header .header__actions {
+    min-width: 0;
+    max-width: 100%;
+    gap: 6px;
+    flex-shrink: 1;
+  }
+
+
+  /* ---------- SEARCH BAR ---------- */
+
+  #site-header .search-bar-trigger,
+  .search-bar-trigger {
+    min-width: 0;
+    width: auto;
+    max-width: 100%;
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    gap: 7px;
+    font-size: 12px;
+  }
+
+  .search-bar-trigger span {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .search-bar-trigger kbd {
+    display: none;
+  }
+
+
+  /* ---------- MOBILE MENU ---------- */
+
+  .nav-mobile {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .nav-mobile__list {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .nav-mobile__link {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 11vw, 3.4rem);
+    line-height: 1.05;
+    word-break: normal;
+  }
+
+  .hero-desc {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .hero-stat {
+    max-width: 100%;
+  }
+
+  .hero-character {
+    width: 100%;
+    min-width: 0;
+    min-height: 300px;
+  }
+
+  .hero-character__img {
+    width: min(78vw, 300px);
+    height: auto;
+  }
+
+
+  /* ---------- SECTION HEADERS ---------- */
+
+  .section-header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-header__title {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    line-height: 1.15;
+  }
+
+  .section-header__desc {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+
+  /* ---------- ALL GRIDS ---------- */
+
+  .grid--4,
+  .grid--3,
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ---------- FEATURED CARDS ---------- */
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .content-card,
+  .phone-card,
+  .card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .content-card__body,
+  .phone-card__body {
+    padding: 16px;
+  }
+
+
+  /* ---------- PHONE CARDS ---------- */
+
+  .phone-card__img {
+    padding: 20px;
+  }
+
+  .phone-card__img img {
+    max-width: 180px;
+    width: 100%;
+    max-height: 180px;
+  }
+
+  .phone-card__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .phone-card__actions .btn {
+    width: 100%;
+  }
+
+
+  /* ---------- VIDEO CAROUSEL ---------- */
+
+  .video-carousel {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .video-track {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+
+  .video-card {
+    flex: 0 0 190px;
+  }
+
+  .carousel-nav {
+    justify-content: space-between;
+  }
+
+
+  /* ---------- FINDER ---------- */
+
+  .finder-panel {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .finder-criteria {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .match-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .match-score {
+    margin: auto;
+  }
+
+
+  /* ---------- FORMS ---------- */
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* ---------- COMPARISON ---------- */
+
+  .compare-mobile__row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+
+  /* ---------- SEARCH MODAL ---------- */
+
+  .search-overlay {
+    padding: 70px 12px 20px;
+    align-items: flex-start;
+  }
+
+  .search-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 18px;
+  }
+
+  .search-input-wrap {
+    padding: 12px 14px;
+  }
+
+  .search-input-wrap input {
+    min-width: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .search-results {
+    max-height: 65vh;
+  }
+
+
+  /* ---------- TOAST ---------- */
+
+  .toast-container {
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    bottom: 12px;
+  }
+
+  .toast {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+
+  /* ---------- VIDEO MODAL ---------- */
+
+  .video-modal__box {
+    width: calc(100% - 24px);
+    max-width: 420px;
+    max-height: 90vh;
+  }
+
+
+  /* ---------- BUTTONS ---------- */
+
+  .text-center .btn {
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES — 360px / 375px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .container,
+  .container--wide {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
+  .hero-character {
+    min-height: 270px;
+  }
+
+  .hero-character__img {
+    width: min(75vw, 270px);
+  }
+
+  .finder-criteria {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card {
+    flex-basis: 175px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .announcement-banner {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES — 320px / 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .container,
+  .container--wide {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+  }
+
+  .search-bar-trigger {
+    font-size: 11px;
+    padding: 7px 8px;
+  }
+
+  .video-card {
+    flex-basis: 165px;
+  }
+}
