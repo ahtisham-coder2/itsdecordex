@@ -40,7 +40,7 @@
             <span>Search anything...</span>
             <kbd>Ctrl+K</kbd>
           </button>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+          
           <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
             <span class="menu-toggle__icon"><span></span><span></span><span></span></span>
           </button>

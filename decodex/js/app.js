@@ -612,7 +612,7 @@
 
   // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
+    
     initMobileNav();
        initNavDropdown();
     initHeaderScroll();
