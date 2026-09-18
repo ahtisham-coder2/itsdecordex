@@ -5,15 +5,15 @@
  */
 const VIDEOS_DATA = [
   {
-    id: "v1",
-    title: "Samsung Galaxy S24 Ultra — Full Review",
-    platform: "youtube",
-    url: "https://youtube.com/@itsdecordex",
-    thumbnail: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=700&fit=crop",
-    category: "Mobile Reviews",
-    date: "2024-11-12",
-    description: "In-depth look at the S24 Ultra camera, S Pen, and AI features."
-  },
+  id: "v1",
+  title: "Redmi Note 10 Pro — Old but Gold!",
+  platform: "tiktok",
+  url: "https://www.tiktok.com/@itsdecordex/video/7666840995035647240?_r=1&_t=ZS-99pfHp9TWR3",
+  thumbnail:"assets/images/video/redmi 10.png",
+  category: "Mobile Reviews",
+  date: "2026-07-26",
+  description: "Redmi Note 10 Pro aaj bhi ek solid all-rounder phone hai — 128GB review."
+},
   {
     id: "v2",
     title: "iPhone 16 Pro Max vs S24 Ultra",

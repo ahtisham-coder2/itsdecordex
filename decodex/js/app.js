@@ -276,28 +276,91 @@
   }
 
   // ---------- Render videos ----------
+    function extractVideoId(v) {
+    if (v.platform === 'youtube') {
+      const m = v.url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]{6,})/);
+      return m ? m[1] : null;
+    }
+    if (v.platform === 'tiktok') {
+      const m = v.url.match(/video\/(\d+)/);
+      return m ? m[1] : null;
+    }
+    return null;
+  }
+
   function renderVideos() {
     const track = document.getElementById('video-track');
     if (!track || !window.VIDEOS_DATA) return;
-    track.innerHTML = window.VIDEOS_DATA.map((v) => `
+    track.innerHTML = window.VIDEOS_DATA.map((v) => {
+      const vid = extractVideoId(v);
+      const playAttrs = vid
+        ? `data-platform="${v.platform}" data-video-id="${vid}"`
+        : `data-external="${v.url}"`;
+      return `
       <article class="video-card">
         <div class="video-card__thumb">
           <img src="${v.thumbnail}" alt="${v.title}" loading="lazy" width="260" height="460">
           <span class="video-card__platform">${v.platform}</span>
-          <a href="${v.url}" class="video-card__play" target="_blank" rel="noopener" aria-label="Watch ${v.title}">
+          <button class="video-card__play" ${playAttrs} aria-label="Watch ${v.title}">
             <span class="video-card__play-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </span>
-          </a>
+          </button>
         </div>
         <div class="video-card__body">
           <h3 class="video-card__title">${v.title}</h3>
           <p class="video-card__meta">${v.category} · ${v.date}</p>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
   }
+    function initVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const frame = document.getElementById('video-modal-frame');
+    if (!modal || !frame) return;
 
+    function openModal(platform, id) {
+      let src = '';
+      if (platform === 'youtube') {
+        src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      } else if (platform === 'tiktok') {
+        src = `https://www.tiktok.com/embed/v2/${id}`;
+      }
+      frame.innerHTML = `<iframe src="${src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      frame.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.video-card__play');
+      if (!btn) return;
+      const external = btn.getAttribute('data-external');
+      if (external) {
+        window.open(external, '_blank', 'noopener');
+        return;
+      }
+      const platform = btn.getAttribute('data-platform');
+      const id = btn.getAttribute('data-video-id');
+      if (platform && id) openModal(platform, id);
+    });
+
+    modal.querySelectorAll('[data-modal-close]').forEach((el) => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
   // ---------- Render featured phones ----------
   function renderFeaturedPhones() {
     const grid = document.getElementById('featured-phones');
@@ -557,6 +620,8 @@
     initBackToTop();
     initSearch();
     initVideoCarousel();
+        initVideoCarousel();
+    initVideoModal();
     renderVideos();
     renderFeaturedPhones();
     initPhoneFinder();

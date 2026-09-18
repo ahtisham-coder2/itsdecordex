@@ -8,7 +8,6 @@ Personal creator / technology website for **DecodeX** by Muhammad Ahtisham Mukht
 - Modern CSS3 (design tokens, dark/light themes)
 - Vanilla JavaScript (ES6+)
 
-No React, Vue, Bootstrap, or Tailwind as primary stack. GitHub Pages ready.
 
 ## Structure
 
