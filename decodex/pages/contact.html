@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact DecodeX — business, collaboration, sponsorship or general messages.">
+  <title>Contact — DecodeX</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%233b82f6' rx='20' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='bold' fill='white' text-anchor='middle' font-family='system-ui'>X</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo"><img src="../assets/images/logo.png" alt="DecodeX" class="logo__mark"><span class="logo__text">Decode<span>X</span></span></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="videos.html" class="nav-link">Videos</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="search-toggle" data-search-open aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Menu" aria-expanded="false"><span class="menu-toggle__icon"><span></span><span></span><span></span></span></button>
+      </div>
+    </div>
+  </header>
+  <nav id="nav-mobile" class="nav-mobile">
+    <ul class="nav-mobile__list">
+      <li><a href="../index.html" class="nav-mobile__link">Home</a></li>
+      <li><a href="about.html" class="nav-mobile__link">About</a></li>
+      <li><a href="contact.html" class="nav-mobile__link active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width:720px">
+        <div class="section-header">
+          <span class="section-header__eyebrow">Contact</span>
+          <h1 class="section-header__title">Get in touch</h1>
+          <p class="section-header__desc">Business, collaboration, sponsorship or general questions. We’ll get back when we can.</p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;margin-bottom:var(--space-10)">
+          <a href="mailto:itsdecordex@gmail.com" class="btn btn--secondary">itsdecordex@gmail.com</a>
+          <a href="https://www.tiktok.com/@itsdecordex" class="btn btn--ghost" target="_blank" rel="noopener">@itsdecordex</a>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+              <span class="error-msg">Please enter your name</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+              <span class="error-msg">Please enter a valid email</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select id="category" name="category" required>
+              <option value="">Select…</option>
+              <option value="Business Inquiry">Business Inquiry</option>
+              <option value="Collaboration">Collaboration</option>
+              <option value="Sponsorship">Sponsorship</option>
+              <option value="General Message">General Message</option>
+            </select>
+            <span class="error-msg">Please select a category</span>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required placeholder="Brief subject">
+            <span class="error-msg">Please enter a subject</span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Your message…"></textarea>
+            <span class="error-msg">Please enter a message</span>
+          </div>
+          <p style="font-size:var(--fs-xs);color:var(--color-text-muted)">
+            <!-- Integration point: connect Formspree, EmailJS or your backend here. No API keys in frontend. -->
+            Form opens your email client as a fallback (mailto). For production, wire a secure email endpoint.
+          </p>
+          <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+        </form>
+
+        <div class="text-center" style="margin-top:var(--space-12)">
+          <img src="../assets/images/character.png" alt="DecodeX character" style="max-width:180px;margin-inline:auto;opacity:0.9" width="180" height="220" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0">
+        <p>© <span id="year"></span> DecodeX</p>
+        <div class="footer-bottom__links"><a href="../index.html">Home</a></div>
+      </div>
+    </div>
+  </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true"><div class="search-modal"><div class="search-input-wrap"><input type="search" id="search-input" placeholder="Search…" aria-label="Search"><button id="search-close" class="btn btn--ghost btn--sm">Esc</button></div><div id="search-results" class="search-results"></div></div></div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="../data/phones.js"></script>
+  <script src="../data/videos.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

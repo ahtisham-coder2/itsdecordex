@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Phones — DecodeX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo"><img src="../assets/images/logo.png" alt="DecodeX" class="logo__mark"><span class="logo__text">Decode<span>X</span></span></a>
+      <nav class="nav-desktop"><a href="../index.html" class="nav-link">Home</a><a href="reviews.html" class="nav-link">Reviews</a><a href="compare.html" class="nav-link active">Compare</a><a href="contact.html" class="nav-link">Contact</a></nav>
+      <div class="header-actions"><button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button><button id="menu-toggle" class="menu-toggle" aria-label="Menu" aria-expanded="false"><span class="menu-toggle__icon"><span></span><span></span><span></span></span></button></div>
+    </div>
+  </header>
+  <nav id="nav-mobile" class="nav-mobile"><ul class="nav-mobile__list"><li><a href="../index.html" class="nav-mobile__link">Home</a></li><li><a href="compare.html" class="nav-mobile__link active">Compare</a></li></ul></nav>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-header__eyebrow">Tool</span>
+          <h1 class="section-header__title">Compare two phones</h1>
+          <p class="section-header__desc">Side-by-side specs. On mobile, stacked layout for readability. Demo comparison.</p>
+        </div>
+        <div class="flex-center gap-4" style="margin-bottom:var(--space-8);flex-wrap:wrap">
+          <select id="phone-a" class="form-group" style="padding:0.75rem 1rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);border-radius:var(--radius-lg);color:var(--color-text-primary)"></select>
+          <span style="color:var(--color-text-muted)">vs</span>
+          <select id="phone-b" style="padding:0.75rem 1rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);border-radius:var(--radius-lg);color:var(--color-text-primary)"></select>
+          <button id="run-compare" class="btn btn--primary">Compare</button>
+        </div>
+        <div id="compare-output"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container"><div class="footer-bottom" style="border:none;padding-top:0"><p>© DecodeX · Prices may vary</p></div></div></footer>
+  <script src="../data/phones.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    (function(){
+      const a=document.getElementById('phone-a'), b=document.getElementById('phone-b'), out=document.getElementById('compare-output');
+      if(!window.PHONES_DATA) return;
+      const opts=window.PHONES_DATA.map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+      a.innerHTML=opts; b.innerHTML=opts;
+      if(window.PHONES_DATA[1]) b.value=window.PHONES_DATA[1].id;
+      document.getElementById('run-compare').addEventListener('click',()=>{
+        const pa=window.PHONES_DATA.find(x=>x.id===a.value), pb=window.PHONES_DATA.find(x=>x.id===b.value);
+        if(!pa||!pb) return;
+        const rows=[
+          ['Price (PKR)', pa.pricePKR.toLocaleString()+' (may vary)', pb.pricePKR.toLocaleString()+' (may vary)'],
+          ['Display', pa.display.size+' '+pa.display.refreshRate, pb.display.size+' '+pb.display.refreshRate],
+          ['Chipset', pa.chipset, pb.chipset],
+          ['RAM', pa.ram, pb.ram],
+          ['Storage', pa.storage, pb.storage],
+          ['Rear camera', pa.cameras.rear, pb.cameras.rear],
+          ['Battery', pa.battery, pb.battery],
+          ['Charging', pa.charging, pb.charging],
+          ['Weight', pa.weight, pb.weight],
+          ['OS', pa.os, pb.os]
+        ];
+        out.innerHTML=`
+          <div class="compare-desktop">
+            <table class="compare-table">
+              <thead><tr><th>Spec</th><th>${pa.name}</th><th>${pb.name}</th></tr></thead>
+              <tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody>
+            </table>
+          </div>
+          <div class="compare-mobile">
+            ${rows.map(r=>`<div class="compare-mobile__section"><div class="compare-mobile__label">${r[0]}</div><div class="compare-mobile__row"><div><strong>${pa.name}</strong><br>${r[1]}</div><div><strong>${pb.name}</strong><br>${r[2]}</div></div></div>`).join('')}
+          </div>
+        `;
+      });
+      document.getElementById('run-compare').click();
+    })();
+  </script>
+</body>
+</html>
