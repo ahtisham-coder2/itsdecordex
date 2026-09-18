@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -74,21 +74,33 @@
         <span class="logo__text">Decode<span>X</span></span>
       </a>
 
-      <nav class="nav-desktop" aria-label="Main">
+            <nav class="nav-desktop" aria-label="Main">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="pages/about.html" class="nav-link">About</a>
-        <a href="pages/videos.html" class="nav-link">Videos</a>
         <a href="pages/reviews.html" class="nav-link">Reviews</a>
         <a href="pages/gadgets.html" class="nav-link">Gadgets</a>
-        <a href="pages/achievements.html" class="nav-link">Achievements</a>
-        <a href="pages/giveaways.html" class="nav-link">Giveaways</a>
+        <a href="pages/videos.html" class="nav-link">Videos</a>
         <a href="pages/blog.html" class="nav-link">Blog</a>
-        <a href="pages/contact.html" class="nav-link">Contact</a>
-      </nav>
 
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown__btn" aria-expanded="false">
+            More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown__menu">
+            <a href="pages/achievements.html">Achievements</a>
+            <a href="pages/giveaways.html">Giveaways</a>
+            <a href="pages/finder.html">Phone Finder</a>
+            <a href="pages/compare.html">Compare</a>
+            <a href="pages/contact.html">Contact</a>
+          </div>
+        </div>
+      </nav>
       <div class="header-actions">
-        <button class="search-toggle" data-search-open aria-label="Open search" title="Search (Ctrl+K)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <button class="search-bar-trigger" data-search-open aria-label="Open search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search anything...</span>
+          <kbd>Ctrl+K</kbd>
         </button>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
         <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
@@ -124,21 +136,30 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container container--wide hero-inner">
         <div class="hero-content">
+          <span class="hero-sparkle" aria-hidden="true">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5L12 2z"/></svg>
+</span>
           <span class="hero-eyebrow">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             Technology · Phones · Creator
           </span>
           <h1 id="hero-title" class="hero-title">
-            Decode the future of <span>mobile tech</span>
-          </h1>
+  Decode the <em class="hero-title__italic">future</em> of<br>
+  <span>mobile tech</span>
+</h1>
           <p class="hero-desc">
             Honest reviews, practical tips, and tools to help you choose the right phone and gadgets — from DecodeX by Muhammad Ahtisham Mukhtar.
           </p>
-          <div class="hero-ctas">
-            <a href="pages/reviews.html" class="btn btn--primary btn--lg">Explore Reviews</a>
-            <a href="pages/videos.html" class="btn btn--secondary btn--lg">Watch Videos</a>
-            <a href="pages/finder.html" class="btn btn--ghost btn--lg">Phone Finder</a>
-          </div>
+                         <div class="hero-ctas">
+                  <a href="pages/reviews.html" class="btn btn--primary btn--lg">
+                    <span>Explore Latest Reviews</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                  <a href="pages/videos.html" class="btn btn--secondary btn--lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <span>Watch Latest Videos</span>
+                  </a>
+                </div>
           <div class="hero-stats">
             <div class="hero-stat">
               <div class="hero-stat__value">@itsdecordex</div>
@@ -152,6 +173,22 @@
         </div>
         <div class="hero-character">
           <div class="hero-character__glow"></div>
+          <span class="hero-character__tagline">Tech<br>Made<br>Simple</span>
+          <span class="hero-float hero-float--1" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+</span>
+<span class="hero-float hero-float--2" aria-hidden="true">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13a7 7 0 0 1 14 0v5a2 2 0 0 1-2 2h-1v-6h3M5 13v6h1a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5"/></svg>
+</span>
+<span class="hero-float hero-float--3" aria-hidden="true">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+</span>
+<span class="hero-float hero-float--4" aria-hidden="true">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M10 3h4M10 21h4"/></svg>
+</span>
+<span class="hero-float hero-float--5" aria-hidden="true">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 18h20"/></svg>
+</span>
           <img
             src="assets/images/character.png"
             alt="DecodeX mascot character in hoodie and cap"
